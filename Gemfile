@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
 
-gem "berkshelf", github: "berkshelf/berkshelf"
+gem 'knife-solo'
+gem 'berkshelf'
