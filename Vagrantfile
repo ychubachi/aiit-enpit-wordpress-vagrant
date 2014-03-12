@@ -86,7 +86,8 @@ Vagrant.configure("2") do |config|
     }
 
     chef.run_list = [
-        "recipe[vagrant_nginx_php_mysql::default]"
+        "recipe[vagrant_nginx_php_mysql::default]",
+        "git"
     ]
   end
 end
