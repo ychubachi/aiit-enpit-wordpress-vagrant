@@ -4,4 +4,4 @@ metadata
 
 cookbook "hub", git: "https://github.com/drnic/chef-hub.git"
 cookbook "php-fpm"
-cookbook "nginx-fastcgi"
+cookbook "database"

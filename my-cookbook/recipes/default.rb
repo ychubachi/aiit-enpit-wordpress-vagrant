@@ -11,29 +11,27 @@ include_recipe 'apt'
 include_recipe 'git'
 include_recipe 'hub'
 include_recipe 'mysql::server'
+include_recipe "database::mysql"
 include_recipe 'nginx'
 include_recipe 'php5_ppa'
 include_recipe 'php'
 include_recipe 'php-fpm'
-include_recipe 'nginx-fastcgi'
 
-nginx_fastcgi '/etc/nginx/sites-available/aiit-enpit-wordpress.conf' do
-  root '/vagrant/aiit-enpit-wordpress'
-  socket '/var/run/php-fpm-www.sock'
+mysql_database 'wordpress' do
+  connection( :host => 'localhost',
+              :username => 'root',
+              :password => node['mysql']['server_root_password'] )
+  action :create
+end
 
-  static(
-         :location => 'html/',
-         :root => '/vagrant/aiit-enpit-wordpress/html'
-         )
+package 'php5-mysql' do
+  action :install
+end
 
-  fastcgi_param  [
-                  { :name => 'CLEARDB_DATABASE_URL',
-                    :value => "mysql://be7ca326aa4cc9:e1489f17@us-cdbr-east-05.cleardb.net/heroku_9c199f87aa077b1?reconnect=true" }
-                 ]
+template '/etc/nginx/sites-available/aiit-enpit-wordpress.conf' do
+  source 'aiit-enpit-wordpress.conf.erb'
+end
 
-  servers [
-           {
-             :server_name => 'vagrant',
-           }
-          ]
+link '/etc/nginx/sites-enabled/default' do
+  to '/etc/nginx/sites-available/aiit-enpit-wordpress.conf'
 end
