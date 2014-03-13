@@ -9,3 +9,10 @@ cd aiit-enpit-wordpress-vagrant
 git submodule init
 git submodule update
 ```
+
+# 仮想環境の起動
+
+```bash
+cd vagrant
+vagrant up
+```
