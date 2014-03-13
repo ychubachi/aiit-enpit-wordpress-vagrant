@@ -11,5 +11,7 @@ depends 'git'
 depends 'hub'
 depends 'mysql'
 depends 'nginx'
+depends 'php5_ppa'
 depends 'php'
-
+depends 'php-fpm'
+depends 'nginx-fastcgi'
