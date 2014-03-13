@@ -1,4 +1,4 @@
-name             'my-cookbook'
+name             'cookbook'
 maintainer       'Yoshihide Chubachi'
 maintainer_email 'yoshi@chubachi.net'
 license          'All rights reserved'
