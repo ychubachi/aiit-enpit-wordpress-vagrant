@@ -8,5 +8,7 @@
 #
 
 include_recipe 'apt'
-include_recipe 'git'
+# include_recipe 'git'
 include_recipe 'mysql::server'
+# include_recipe 'nginx'
+# include_recipe 'php'
