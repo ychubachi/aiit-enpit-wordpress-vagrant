@@ -8,6 +8,7 @@ version          '0.1.0'
 
 depends 'apt'
 depends 'git'
+depends 'hub'
 depends 'mysql'
 depends 'nginx'
 depends 'php'
