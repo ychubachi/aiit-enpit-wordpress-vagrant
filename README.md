@@ -1,7 +1,7 @@
-# 概要
+## 概要
   AIIT enPiTサイトの開発環境です．
 
-# 準備
+## 準備
 
 ```bash
 git clone git@github.com:ychubachi/aiit-enpit-wordpress-vagrant.git
