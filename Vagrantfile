@@ -82,12 +82,19 @@ Vagrant.configure("2") do |config|
         server_root_password: 'rootpass',
         server_debian_password: 'debpass',
         server_repl_password: 'replpass'
+      },
+      locale: {
+        lang: "ja_JP.utf8"
       }
     }
 
     chef.run_list = [
         "recipe[vagrant_nginx_php_mysql::default]",
-        "git"
+        "apt",
+        "locale",
+        "zsh",
+        "git",
+        "mysql"
     ]
   end
 end
